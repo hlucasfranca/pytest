@@ -20,10 +20,12 @@ def person(device):
         "birth_date": date_time_br.formatted_date(start= date_time_br._CURRENT_YEAR - person_br.age(minimum=18), end=2000, fmt='%Y-%m-%d'),
         "city": address_br.city(),
         "cep": address_br.postal_code(),
-        "address": address_br.street_name()    
+        "address": address_br.street_name(),
+        "device": device
     }
     
-    yield {**person_data, **device}
+    #yield {**person_data, **device}
+    yield person_data
     
 @pytest.fixture(scope="session")
 def device():        
